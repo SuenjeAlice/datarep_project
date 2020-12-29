@@ -7,6 +7,8 @@ import { Home } from './components/home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { MyBooks } from './components/mybooks';
+import { About } from './components/about';
 
 
 class App extends Component{
@@ -14,15 +16,22 @@ class App extends Component{
     return (
       <Router>
         <div className="App">
-          <Navbar bg="primary" variant="dark">
+          <Navbar bg="dark" variant="dark">
             <Nav className="mr-auto">
-              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/mybooks">My Books</Nav.Link>
+              <Nav.Link href="/about">About</Nav.Link>
             </Nav>
           </Navbar>
           <br />
           <Switch>
-            <Route path='/home' component={Home} exact />
+            <Route path='/' component={Home} exact />
+            <Route path = '/mybooks' component={MyBooks} />
+            <Route path = '/about' component={About} />
           </Switch>
+          <footer>
+            <h2>This is footer</h2>
+          </footer>
         </div>
       </Router>
     );
