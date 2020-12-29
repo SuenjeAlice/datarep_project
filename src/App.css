@@ -5,6 +5,10 @@ footer{
     color: white;
 }
 
+h1, h2{
+    text-align: center;
+}
+
 .carousel{
     max-width: 1200px;
     margin: 0 auto;

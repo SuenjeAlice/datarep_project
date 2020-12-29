@@ -15,7 +15,7 @@ export class Home extends Component{
       <div className="App">
 
         <Carousel className = "carousel">
-          <Carousel.Item interval={2000}>
+          <Carousel.Item interval={8000}>
             <img
               className="d-block w-100"
               src={Background}
@@ -26,7 +26,7 @@ export class Home extends Component{
               <p>- Cicero</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={2000}>
+          <Carousel.Item interval={8000}>
             <img
                 className="d-block w-100"
                 src={Background}
@@ -37,7 +37,7 @@ export class Home extends Component{
               <p>- Jane Austin</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={2000}>
+          <Carousel.Item interval={8000}>
             <img
                 className="d-block w-100"
                 src={Background}
@@ -48,7 +48,7 @@ export class Home extends Component{
               <p>- Neil Gaiman</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={2000}>
+          <Carousel.Item interval={8000}>
             <img
               className="d-block w-100"
               src={Background}
@@ -59,7 +59,7 @@ export class Home extends Component{
               <p>- Oscar Wilde</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={2000}>
+          <Carousel.Item interval={8000}>
             <img
                 className="d-block w-100"
                 src={Background}
@@ -70,7 +70,7 @@ export class Home extends Component{
               <p>- Cassandra Clare</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={2000}>
+          <Carousel.Item interval={8000}>
             <img
                 className="d-block w-100"
                 src={Background}
@@ -81,7 +81,7 @@ export class Home extends Component{
               <p>- C.S. Lewis</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={2000}>
+          <Carousel.Item interval={8000}>
             <img
                 className="d-block w-100"
                 src={Background}
