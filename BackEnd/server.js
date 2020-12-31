@@ -35,12 +35,12 @@ const Schema = mongoose.Schema;
 
 //created Schema for a book
 var bookSchema = new Schema({
-    title:String,
+    bTitle:String,
     author:String,
-    cover: String,
-    publisher: String,
-    genre: String,
-    read: Boolean
+    cover:String,
+    publisher:String,
+    genre:String,
+    read:Boolean
 });
 
 //created a Model
@@ -67,21 +67,30 @@ app.get('/api/books/:id', (req, res)=>{
     })
 })
 
-app.put('/api/bookd/:id', (req, res)=>{
+app.put('/api/books/:id', (req, res)=>{
     console.log("Update book: " + req.params.id);
     console.log(req.body);
 
-    //used findByIdAndUpdate to update data
     BookModel.findByIdAndUpdate(req.params.id, req.body, {new: true}, 
       (err,data)=>{
           res.send(data);
       })
 })
 
+//delete book
+app.delete('/api/books/:id', (req, res) => {
+    console.log("Delete Book: " + req.params.id);
+    console.log(req.body);
+
+    BookModel.findByIdAndDelete(req.params.id,(err, data)=>{
+        res.send(data);
+    })
+})
+
 app.post('/api/books', (req, res) => {
     //create data
     BookModel.create({
-        title: req.body.title,
+        bTitle: req.body.bTitle,
         author: req.body.author,
         cover: req.body.cover,
         publisher: req.body.publisher,

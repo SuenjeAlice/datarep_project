@@ -6,8 +6,8 @@ import '../App.css';
 import Carousel from 'react-bootstrap/Carousel';
 //import local image
 import Background from '../media/white.png';
-//import Button from React Bootstrap
-import Button from 'react-bootstrap/Button'
+//import Link 
+import { Link } from 'react-router-dom';
 
 export class Home extends Component{
   render(){
@@ -97,8 +97,8 @@ export class Home extends Component{
         <div className = "homeButtons">
           <h2>Welcome to Your Books</h2>
           <div className = "homeBtns">
-          <Button variant="dark">New Book</Button>
-          <Button variant="dark">View Books</Button>
+            <Link to = {"/add"} className="btn btn-dark homeBtnLink" >New Book</Link>
+            <Link to = {"/mybooks"} className="btn btn-dark homeBtnLink" >View Books</Link>
           </div>
         </div>
       </div>

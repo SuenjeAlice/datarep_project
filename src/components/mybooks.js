@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import '../App.css';
 import { Books } from './books';
+import { Link } from 'react-router-dom';
 
 
 
@@ -16,7 +17,7 @@ export class MyBooks extends Component{
         super();
 
         //bind Reload()
-        this.Reload = this.Reload.bind(this);
+        this.ReloadData = this.ReloadData.bind(this);
     }
 
     state = {
@@ -26,7 +27,7 @@ export class MyBooks extends Component{
     componentDidMount(){
         axios.get('http://localhost:4000/api/books')
         .then(response => {
-        this.setState({ books: response.data.books });
+        this.setState({ books: response.data });
         })
         .catch((error) => {
         console.log(error);
@@ -34,11 +35,11 @@ export class MyBooks extends Component{
 
     }
 
-    Reload(){
+    ReloadData(){
         axios.get('http://localhost:4000/api/books')
-        .then((response)=>{
+        .then(response =>{
                 this.setState({
-                    books: response.data.book
+                    books: response.data
                 })
         })
         .catch((error)=>{ 
@@ -50,7 +51,11 @@ export class MyBooks extends Component{
     return (
       <div className="App">
         <h1>My Books</h1>
-        <Books books = {this.state.books} Reload = {this.Reload}></Books>
+        <hr></hr>
+        <div className = "myBooksBtn">
+          <Link to = {"/add"} className="btn btn-dark myBooksBtnLink" >New Book</Link>
+        </div>
+        <Books books = {this.state.books} ReloadData = {this.ReloadData}></Books>
       </div>
     );
   }

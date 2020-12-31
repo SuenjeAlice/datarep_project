@@ -9,6 +9,8 @@ import { Navbar, Nav } from 'react-bootstrap'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { MyBooks } from './components/mybooks';
 import { About } from './components/about';
+import { Add } from './components/add';
+import { Update } from './components/update';
 
 
 class App extends Component{
@@ -28,6 +30,8 @@ class App extends Component{
             <Route path='/' component={Home} exact />
             <Route path = '/mybooks' component={MyBooks} />
             <Route path = '/about' component={About} />
+            <Route path = '/add' component={Add} />
+            <Route path = '/update/:id' component={Update} />
           </Switch>
           <footer>
             <h2>This is footer</h2>

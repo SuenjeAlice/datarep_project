@@ -7,7 +7,7 @@ import { Book } from './book';
 export class Books extends Component{
   render(){
     return this.props.books.map( (book) => {
-        return <Book book = {book} Reload = {this.props.Reload}></Book>
+        return <Book book = {book} ReloadData = {this.props.ReloadData}></Book>
     })
   }
 }
