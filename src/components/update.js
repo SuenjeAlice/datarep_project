@@ -114,8 +114,8 @@ export class Update extends Component{
             _id: this.state._id
         }
 
-        //send book to server using post method
-        axios.post('http://localhost:4000/api/books/'  + this.state._id, newBook)
+        
+        axios.put('http://localhost:4000/api/books/'  + this.state._id, newBook)
         .then((res)=> {
             //log responds
             console.log(res.data);
@@ -135,8 +135,8 @@ export class Update extends Component{
   render(){
     return (
       <div className="App">
-            {/*Form to add a new Book which will be submitted on button press */}
-        
+          <h1>Update your Book</h1>
+            {/*Form to update the Book which will be submitted on button press */}
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                     <label>Book Title: </label>

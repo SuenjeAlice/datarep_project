@@ -34,6 +34,16 @@ export class Book extends Component{
         });
   }
   render(){
+    
+    //To determine whether or not a book was read
+    console.log(this.props.book.read);
+    var result = "";
+    if(this.props.book.read){
+      result = "Read";
+    }else{
+      result = "Not Read";
+    }
+
     return (
       <div className="App">
           <Card className = "card" style={{ width: '25rem' }}>
@@ -44,7 +54,7 @@ export class Book extends Component{
                   <footer className="blockquote-footer">
                     <p>{this.props.book.publisher}</p>
                     <p>{this.props.book.genre}</p>
-                    <p>{this.props.book.read}</p>
+                    <p>{result}</p>
                   </footer>
                 </blockquote>
               </Card.Body>

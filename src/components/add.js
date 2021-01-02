@@ -117,8 +117,8 @@ export class Add extends Component{
   render(){
     return (
       <div className="App">
+          <h1>Add a New Book to Your Booklist</h1>
             {/*Form to add a new Book which will be submitted on button press */}
-        
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                     <label>Book Title: </label>

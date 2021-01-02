@@ -54,3 +54,8 @@ h1, h2{
     width: 130px!important;
     margin: 0 auto;
 }
+
+form{
+    max-width: 700px;
+    margin: 0 auto;
+}
