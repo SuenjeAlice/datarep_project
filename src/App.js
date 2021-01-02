@@ -6,12 +6,13 @@ import { Home } from './components/home';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { MyBooks } from './components/mybooks';
 import { About } from './components/about';
 import { Add } from './components/add';
 import { Update } from './components/update';
-
+//import image
+import book_logo from './media/book.png';
 
 class App extends Component{
   render(){
@@ -34,7 +35,29 @@ class App extends Component{
             <Route path = '/update/:id' component={Update} />
           </Switch>
           <footer>
-            <h2>This is footer</h2>
+            <div className = "footerSection">
+              <img
+                  className="logo logoImg"
+                  src={book_logo}
+                  alt="book logo"
+                />
+                <p className="logo">My Books</p>
+            </div>
+            <div className = "footerSection middleSection">
+              <ul>
+                <li><Link to = {"/"}>Home</Link></li>
+                <li><Link to = {"/mybooks"}>My Books</Link></li>
+                <li><Link to = {"/about"}>About</Link></li>
+              </ul>
+
+            </div>
+            <div className = "footerSection">
+              <ul>
+                <li><Link to = {"/mybooks"}>View Books</Link></li>
+                <li><Link to = {"/add"}>Add Book</Link></li>
+              </ul>
+
+            </div>
           </footer>
         </div>
       </Router>
