@@ -48,9 +48,24 @@ export class Add extends Component{
 
     //onChangeCover method which assigns the value to the cover
     onChangeCover(e){
-        //update state to include value
+        let file = e.target.files[0] 
+        if (file){
+            const reader = new FileReader();
+            
+            reader.onload = this._handleReaderLoaded.bind(this)
+
+            reader.readAsBinaryString(file)
+        }
+        // //update state 
+        // this.setState({
+        //     cover: ;
+        // })
+    }
+
+    _handleReaderLoaded = (readerEvt) => {
+        let binaryString = readerEvt.target.result
         this.setState({
-            cover: e.target.value 
+            cover: btoa(binaryString)
         })
     }
 
@@ -130,7 +145,9 @@ export class Add extends Component{
                 </div>
                 <div className="form-group">
                     <label>Cover: </label>
-                    <textarea type='text' className='form-control' value={this.state.cover} onChange={this.onChangeCover}></textarea>
+                   {/* <textarea type='text' className='form-control' value={this.state.cover} onChange={this.onChangeCover}></textarea>*/}
+                   <br></br>
+                    <input type="file" id = "coverFile" name="coverFile" accept = ".jpeg, .png, .jpg" onChange={this.onChangeCover}></input>
                 </div>
                 <div className="form-group">
                     <label>Publisher: </label>
