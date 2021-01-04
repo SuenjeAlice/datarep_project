@@ -39,9 +39,9 @@ export class Book extends Component{
     console.log(this.props.book.read);
     var result = "";
     if(this.props.book.read){
-      result = "Read";
+      result = "READ";
     }else{
-      result = "Not Read";
+      result = "NOT READ";
     }
 
     return (
@@ -51,16 +51,15 @@ export class Book extends Component{
               <Card.Body>
                 <blockquote className="blockquote mb-0">
                   <img src={ "data:image/jpg; data:image/png; data:image/jpeg;base64," + this.props.book.cover} alt = {"Cover of " + this.props.book.bTitle} className = "bookImg"></img>
-                  <footer className="blockquote-footer">
-                    {this.props.book.author}
-                    <p>{this.props.book.publisher}</p>
-                    <p>{this.props.book.genre}</p>
-                    <p>{result}</p>
+                  <footer>
+                    <p>Publisher: {this.props.book.publisher}</p>
+                    <p>Genre: {this.props.book.genre}</p>
+                    <p>I did {result} it.</p>
                   </footer>
                 </blockquote>
               </Card.Body>
               <div className = "btnsCard">
-                <Link to={"/update/" + this.props.book._id} className="btn btn-dark homeBtnLink">Edit</Link>
+                <Link to={"/update/" + this.props.book._id} className="btn btn-dark homeBtnLink">Update</Link>
                 <Button className = "homeBtnLink" variant = "danger" onClick={this.DeleteBook}>Delete</Button>
               </div>
           </Card>

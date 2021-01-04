@@ -95,10 +95,10 @@ export class Add extends Component{
 
     //onChangeRead method which assigns the value to the read
     onChangeRead(e){
-        //update state to include value
-        this.setState({
-            read: e.target.value 
-        })
+            //update state to include value
+            this.setState({
+                read: e.target.value 
+            })
     }
 
     //onSubmit method 

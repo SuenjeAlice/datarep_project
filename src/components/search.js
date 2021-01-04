@@ -4,16 +4,17 @@ import React, { Component } from 'react';
 import '../App.css';
 
 export class Search extends Component{
+
+  
   render(){
     return(
-        <div className = "App">
+        <div className = "App searchApp">
             <form className="search">
         <input
-          value={searchValue}
-          onChange={handleSearchInputChanges}
+        
           type="text"
         />
-        <input onClick={callSearchFunction} type="submit" value="SEARCH" />
+        <input type="submit"  className= "btn btn-light" value="SEARCH" />
       </form>
         </div>
     );

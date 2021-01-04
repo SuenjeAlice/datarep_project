@@ -8,6 +8,7 @@ import axios from 'axios';
 import '../App.css';
 import { Books } from './books';
 import { Link } from 'react-router-dom';
+import { Search } from './search';
 
 
 
@@ -49,11 +50,12 @@ export class MyBooks extends Component{
 
   render(){
     return (
-      <div className="App">
+      <div className="App mybooks">
         <h1>My Books</h1>
         <hr></hr>
         <div className = "myBooksBtn">
-          <Link to = {"/add"} className="btn btn-dark myBooksBtnLink" >New Book</Link>
+        <Link to = {"/add"} className="btn btn-dark myBooksBtnLink" >New Book</Link> 
+        <Search />
         </div>
         <Books books = {this.state.books} ReloadData = {this.ReloadData}></Books>
       </div>

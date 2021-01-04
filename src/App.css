@@ -1,3 +1,6 @@
+/*Data Representation and Querying - Project - Sünje Ursa Alice Winteler - G00363332*/
+
+/*General Styling*/
 body{
     width:1200px;
     margin: 0 auto!important;
@@ -9,27 +12,48 @@ footer{
     color: darkgray;
 }
 
-h1, h2{
+h1, h2, h3, h4{
     text-align: center;
+}
+
+
+/*Home Page Styling*/
+.home{
+    background: url(./media/bookshelf_background1.jpg);
+    background-size: cover;
+}
+
+.homeBottom{
+    background-color: rgba(255, 255, 255, 0.4);
+    padding-bottom: 1%;
 }
 
 .carousel{
     max-width: 1200px;
     margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.4);
+   
+}
+
+.carousel img{
+    opacity: 0;
+
 }
 
 .caption{
     color: black!important;
-    bottom: 37%!important;
+    bottom: 32%!important;
 }
 
 .homeButtons{
     max-width: 900px;
     margin: 0 auto;
-    margin-top: 2%;
+    padding-top: 2%;
+    opacity: 1;
+    
 }
 
-.homeButtons h2{
+.homeButtons h2, p{
     text-align: center;
 }
 
@@ -42,12 +66,25 @@ h1, h2{
     margin: 1%;
 }
 
+/*My Book Page Styling*/
+.mybooks{
+    
+}
+
 .card{
     margin: 1% auto;
 }
 
 .myBooksBtn{
-    margin-left:1000px;
+    margin-left:800px;
+}
+
+.searchApp{
+    max-width: 400px;
+}
+
+.myBooksBtnLink{
+    float: right;
 }
 
 .bookImg{
@@ -58,14 +95,56 @@ h1, h2{
 }
 
 .btnsCard{
-    width: 130px!important;
+    width: 160px!important;
     margin: 0 auto;
+    margin-bottom: 1%;
 }
 
 form{
     max-width: 700px;
     margin: 0 auto;
 }
+
+/*About Styling */
+
+.about{
+    background: url(./media/library_background2.jpg);
+    background-size: cover;
+    padding: 1%;
+}
+
+.aboutInfo{
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 0 auto;
+    padding: 1%;
+}
+
+.about a{
+    text-decoration: none;
+    color: #292b2c;
+    font-weight: bold;
+}
+
+.about  a:visited {
+    color: black;
+  }
+  
+  .about  a:hover {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .about  a:active {
+    color: black;
+  }
+
+  .aboutLogo{
+      max-width: 200px;
+      margin: 0 auto;
+  }
+
+/*Footer Styling*/ 
 
 .logo{
     width: 100px;
