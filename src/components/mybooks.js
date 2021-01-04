@@ -9,7 +9,10 @@ import '../App.css';
 import { Books } from './books';
 import { Link } from 'react-router-dom';
 import { Search } from './search';
-import ScrollUpButton from "react-scroll-up-button";
+//import ScrollUpButton, used https://www.npmjs.com/package/react-scroll-up-button
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
+//import SearchField, used https://github.com/nutboltu/react-search-field
+import SearchField from "react-search-field";
 
 
 
@@ -20,11 +23,15 @@ export class MyBooks extends Component{
 
         //bind Reload()
         this.ReloadData = this.ReloadData.bind(this);
+        this.onSearchClick = this.onSearchClick.bind(this);
+        
     }
 
     state = {
         books: []
     };
+
+    searchValue = "";
 
     componentDidMount(){
         axios.get('http://localhost:4000/api/books')
@@ -49,6 +56,11 @@ export class MyBooks extends Component{
         });
     }
 
+    onSearchClick(e){
+      console.log("The button was clicked");
+      console.log(e.target.value);
+    }
+
   render(){
     return (
       <div className="App mybooks">
@@ -56,9 +68,13 @@ export class MyBooks extends Component{
         <hr></hr>
         <div className = "myBooksBtn">
         <Link to = {"/add"} className="btn btn-dark myBooksBtnLink" >New Book</Link> 
-        <Search />
-        <ScrollUpButton/>
+        <SearchField
+          placeholder="Search..."
+          onSearchClick={this.onSearchClick}
+          value={this.searchValue}
+        />
         </div>
+        <ScrollUpButton/>
         <Books books = {this.state.books} ReloadData = {this.ReloadData}></Books>
       </div>
     );
