@@ -9,6 +9,7 @@ import '../App.css';
 import { Books } from './books';
 import { Link } from 'react-router-dom';
 import { Search } from './search';
+import ScrollUpButton from "react-scroll-up-button";
 
 
 
@@ -56,6 +57,7 @@ export class MyBooks extends Component{
         <div className = "myBooksBtn">
         <Link to = {"/add"} className="btn btn-dark myBooksBtnLink" >New Book</Link> 
         <Search />
+        <ScrollUpButton/>
         </div>
         <Books books = {this.state.books} ReloadData = {this.ReloadData}></Books>
       </div>
