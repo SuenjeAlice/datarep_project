@@ -50,6 +50,13 @@ h1, h2{
     margin-left:1000px;
 }
 
+.bookImg{
+    max-width: 350px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 1%;
+}
+
 .btnsCard{
     width: 130px!important;
     margin: 0 auto;

@@ -68,9 +68,28 @@ export class Update extends Component{
 
     //onChangeCover method which assigns the value to the cover
     onChangeCover(e){
-        //update state to include value
+        //followed tutorial at https://medium.com/@blturner3527/storing-images-in-your-database-with-base64-react-682f5f3921c2
+        let file = e.target.files[0] 
+        if (file){
+            if(file.size > 32200){
+                alert("File is too big! The file must be smaller than 30KB!");
+
+            }else{
+                const reader = new FileReader();
+            
+                reader.onload = this._handleReaderLoaded.bind(this)
+    
+                reader.readAsBinaryString(file)
+            }
+            
+        }
+    }
+
+    _handleReaderLoaded = (readerEvt) => {
+        let binaryString = readerEvt.target.result
+        console.log(btoa(binaryString))
         this.setState({
-            cover: e.target.value 
+            cover: btoa(binaryString)
         })
     }
 
@@ -148,7 +167,9 @@ export class Update extends Component{
                 </div>
                 <div className="form-group">
                     <label>Cover: </label>
-                    <textarea type='text' className='form-control' value={this.state.cover} onChange={this.onChangeCover}></textarea>
+                    <br></br>
+                    <input type="file"  accept = ".jpeg, .png, .jpg" onChange={this.onChangeCover}></input>
+                    <small class="form-text text-muted">The file has to be smaller than 30KB!</small>
                 </div>
                 <div className="form-group">
                     <label>Publisher: </label>

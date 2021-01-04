@@ -50,8 +50,9 @@ export class Book extends Component{
               <Card.Header><h2>{this.props.book.bTitle}</h2> <h3>{this.props.book.author}</h3></Card.Header>
               <Card.Body>
                 <blockquote className="blockquote mb-0">
-                  <img src={this.props.book.cover} width="200" height="200"></img>
+                  <img src={ "data:image/jpg; data:image/png; data:image/jpeg;base64," + this.props.book.cover} alt = {"Cover of " + this.props.book.bTitle} className = "bookImg"></img>
                   <footer className="blockquote-footer">
+                    {this.props.book.author}
                     <p>{this.props.book.publisher}</p>
                     <p>{this.props.book.genre}</p>
                     <p>{result}</p>
