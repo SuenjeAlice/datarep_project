@@ -1,17 +1,24 @@
 //Data Representation and Querying - Project - Sünje Ursa Alice Winteler - G00363332
 
 import React, { Component } from 'react';
+//imported css stylesheet
 import './App.css';
+//imported Home, MyBooks, About, Add, and Update components
 import { Home } from './components/home';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav } from 'react-bootstrap'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { MyBooks } from './components/mybooks';
 import { About } from './components/about';
 import { Add } from './components/add';
 import { Update } from './components/update';
-//import image
+
+//imported React Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+//imported Nav 
+import { Navbar, Nav } from 'react-bootstrap'
+
+//imported BrowserRouter
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
+//import logo image
 import book_logo from './media/book.png';
 
 class App extends Component{
@@ -19,6 +26,7 @@ class App extends Component{
     return (
       <Router>
         <div className="App">
+          {/*Navigation Bar includes Logo and links to homepage, mybooks page and about page */}
           <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="/">
               <img
@@ -36,6 +44,7 @@ class App extends Component{
             </Nav>
           </Navbar>
 
+          {/*Set up paths for the Routing */}
           <Switch>
             <Route path='/' component={Home} exact />
             <Route path = '/mybooks' component={MyBooks} />
@@ -43,6 +52,8 @@ class App extends Component{
             <Route path = '/add' component={Add} />
             <Route path = '/update/:id' component={Update} />
           </Switch>
+
+          {/*Footer Section - includes logo and links */}
           <footer>
             <div className = "footerSection">
               <img

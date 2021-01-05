@@ -1,7 +1,9 @@
 //Data Representation and Querying - Project - Sünje Ursa Alice Winteler - G00363332
 
 import React, { Component } from 'react';
+//imported CSS stylesheet
 import '../App.css';
+//imported Book component
 import { Book } from './book';
 
 export class Books extends Component{

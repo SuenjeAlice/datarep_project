@@ -6,6 +6,7 @@ body{
     margin: 0 auto!important;
     font-family: 'Bookman Old Style', 'Times New Roman', Times, serif!important;
 }
+
 footer{
     background-color: #292b2c;
     padding: 1%;
@@ -122,7 +123,7 @@ hr{
     margin-bottom: 1%;
 }
 
-/*Add and Update*/
+/*Add and Update Page Styling*/
 .formPage{
     background: url(./media/library_background4.jpg);
     background-size: cover;
@@ -143,7 +144,7 @@ form{
 
 
 
-/*About Styling */
+/*About Page Styling */
 
 .about{
     background: url(./media/library_background2.jpg);
@@ -168,18 +169,18 @@ form{
     color: black;
   }
   
-  .about  a:hover {
+.about  a:hover {
     color: white;
     text-decoration: none;
   }
   
-  .about  a:active {
+.about  a:active {
     color: black;
   }
 
-  .aboutLogo{
-      max-width: 200px;
-      margin: 0 auto;
+.aboutLogo{
+    max-width: 200px;
+    margin: 0 auto;
   }
 
 /*Footer Styling*/ 
@@ -226,7 +227,7 @@ footer a:visited {
     color: black;
   }
 
-  /*Media Queries*/
+  /*Media Queries for mobile version*/
 
   @media only screen and (max-width: 1100px) {
     /*Generale*/

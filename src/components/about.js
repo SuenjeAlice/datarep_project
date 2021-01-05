@@ -1,15 +1,18 @@
 //Data Representation and Querying - Project - Sünje Ursa Alice Winteler - G00363332
 
 import React, { Component } from 'react';
+//imported Link 
 import { Link } from 'react-router-dom';
+//imported CSS stylesheet
 import '../App.css';
-//import image
+//import logo image
 import book_logo from '../media/book.png';
 
 export class About extends Component{
   render(){
     return (
       <div className="App about">
+        {/* About text inlcudes links to mybooks and add, as well as the logo */}
         <div className = "aboutInfo">
           <h1>About</h1>
           <h4>Welcome to the My Books App made by booklovers for booklovers!</h4>

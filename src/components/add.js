@@ -3,11 +3,14 @@
 import React, { Component } from 'react';
 //imported axios
 import axios from 'axios';
+//imported CSS stylesheet
 import '../App.css';
 
 export class Add extends Component{
 
+    //constructor
     constructor(){
+        //super keyword
         super();
 
         //Binding
@@ -49,29 +52,35 @@ export class Add extends Component{
     //onChangeCover method which assigns the value to the cover
     onChangeCover(e){
         //followed tutorial at https://medium.com/@blturner3527/storing-images-in-your-database-with-base64-react-682f5f3921c2
+        //create a file and assign the file uploaded (first element in files array)
         let file = e.target.files[0] 
+        //check if a file exists
         if (file){
+            //check the size off the file (the server can't handle big files)
             if(file.size > 32200){
+                //alert if file is too big
                 alert("File is too big! The file must be smaller than 30KB!");
-
             }else{
+                //create a FileReader and assign it to reader variable
                 const reader = new FileReader();
             
+                //load reader
                 reader.onload = this._handleReaderLoaded.bind(this)
     
+                //convert to Binary
                 reader.readAsBinaryString(file)
             }
-            
         }
-        // //update state 
-        // this.setState({
-        //     cover: ;
-        // })
     }
 
+    //method used to handle reader when loaded, has readerEvt (reader event) as argument
     _handleReaderLoaded = (readerEvt) => {
+        //use result from reader and assign to binaryString variable
         let binaryString = readerEvt.target.result
+        //console log variable in btoa method (base64)
         console.log(btoa(binaryString))
+        
+        //update state with binaryString variable which has been converted to Base64 using btoa method
         this.setState({
             cover: btoa(binaryString)
         })
@@ -95,15 +104,19 @@ export class Add extends Component{
 
     //onChangeRead method which assigns the value to the read
     onChangeRead(e){
+        //create a readVar variable and assign the value
         var readVar = e.target.value
+        //console log readVar
         console.log(readVar);
+        //check if readVar equals to Yes (in both type and value)
         if(readVar === "Yes"){
-            console.log("Yes, if state")
+            //update state to true
             this.setState({
                 read: "true"
             })
+        //check if readVar equals to No (in both type and value)
         }else if(readVar === "No"){
-            console.log("No, if state")
+            //update state to false
             this.setState({
                 read: "false"
             })
@@ -114,9 +127,6 @@ export class Add extends Component{
     onSubmit(e){
         //to prevent the calling of button multiple times
         e.preventDefault();
-
-        //Testing
-        alert("Book: " + this.state.bTitle);
 
         //created a book variable and added key value pairs
         const newBook = {
@@ -163,7 +173,6 @@ export class Add extends Component{
                 </div>
                 <div className="form-group">
                     <label>Cover: </label>
-                   {/* <textarea type='text' className='form-control' value={this.state.cover} onChange={this.onChangeCover}></textarea>*/}
                     <br></br>
                     <input type="file" id = "coverFile" name="coverFile" accept = ".jpeg, .png, .jpg" onChange={this.onChangeCover}></input>
                     <small class="form-text text-muted">The file has to be smaller than 30KB!</small>
@@ -178,8 +187,7 @@ export class Add extends Component{
                 </div>
                 <div className="form-group">
                     <label>Did you read the book? </label>
-                    {/*<input type='text' className='form-control' value={this.state.read} onChange={this.onChangeRead}></input>*/}
-                    <select class="form-control"  value={this.state.read} onChange={this.onChangeRead}>
+                    <select class="form-control"  value={this.state.read} onChange={this.onChangeRead} required>
                             <option selected>Please select:</option>
                             <option>Yes</option>
                             <option>No</option>

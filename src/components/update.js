@@ -3,10 +3,13 @@
 import React, { Component } from 'react';
 //imported axios
 import axios from 'axios';
+//imported CSS stylesheet
 import '../App.css';
 
 export class Update extends Component{
+    //constructor
     constructor(){
+        //super keyword
         super();
 
         //Binding
@@ -28,7 +31,7 @@ export class Update extends Component{
             read:''
         }
     }
-
+    //componentDidMount to get data from server
     componentDidMount(){
         console.log(this.props.match.params.id);
 
@@ -69,25 +72,37 @@ export class Update extends Component{
     //onChangeCover method which assigns the value to the cover
     onChangeCover(e){
         //followed tutorial at https://medium.com/@blturner3527/storing-images-in-your-database-with-base64-react-682f5f3921c2
+        //create a file and assign the file uploaded (first element in files array)
         let file = e.target.files[0] 
+        //check if a file exists
         if (file){
+            //check the size off the file (the server can't handle big files)
             if(file.size > 32200){
+                //alert if file is too big
                 alert("File is too big! The file must be smaller than 30KB!");
 
             }else{
+                //create a FileReader and assign it to reader variable
                 const reader = new FileReader();
             
+                //load reader
                 reader.onload = this._handleReaderLoaded.bind(this)
     
+                //convert to Binary
                 reader.readAsBinaryString(file)
             }
             
         }
     }
 
+    //method used to handle reader when loaded, has readerEvt (reader event) as argument
     _handleReaderLoaded = (readerEvt) => {
+        //use result from reader and assign to binaryString variable
         let binaryString = readerEvt.target.result
+        //console log variable in btoa method (base64)
         console.log(btoa(binaryString))
+
+        //update state with binaryString variable which has been converted to Base64 using btoa method
         this.setState({
             cover: btoa(binaryString)
         })
@@ -111,15 +126,19 @@ export class Update extends Component{
 
     //onChangeRead method which assigns the value to the read
     onChangeRead(e){
+        //create a readVar variable and assign the value
         var readVar = e.target.value
+        //console log readVar
         console.log(readVar);
+        //check if readVar equals to Yes (in both type and value)
         if(readVar === "Yes"){
-            console.log("Yes, if state")
+            //update state to true
             this.setState({
                 read: "true"
             })
+        //check if readVar equals to No (in both type and value)
         }else if(readVar === "No"){
-            console.log("No, if state")
+            //update state to false
             this.setState({
                 read: "false"
             })
@@ -142,7 +161,7 @@ export class Update extends Component{
             _id: this.state._id
         }
 
-        
+        //update book in server using put method
         axios.put('http://localhost:4000/api/books/'  + this.state._id, newBook)
         .then((res)=> {
             //log responds

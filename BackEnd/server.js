@@ -46,10 +46,12 @@ var bookSchema = new Schema({
 //created a Model
 var BookModel = mongoose.model("book", bookSchema);
 
+//test if server works
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
+//used get method to display api
 app.get('/api/books', (req, res) => {
     //find data
     BookModel.find((err, data) => {
@@ -57,36 +59,41 @@ app.get('/api/books', (req, res) => {
     })
 })
 
-//used get method
+//used get method to display api entry with the given id
 app.get('/api/books/:id', (req, res)=>{
+    //logs id
     console.log(req.params.id);
     
-    //find movie by ID
+    //finds the book by ID
     BookModel.findById(req.params.id, (err, data) => {
       res.json(data);
     })
 })
 
+//used put method to update book record with given id 
 app.put('/api/books/:id', (req, res)=>{
     console.log("Update book: " + req.params.id);
     console.log(req.body);
 
+    //used findByIdAndUpdate method to find the book record and update it
     BookModel.findByIdAndUpdate(req.params.id, req.body, {new: true}, 
       (err,data)=>{
           res.send(data);
       })
 })
 
-//delete book
+//used delete method to delete book with the given id
 app.delete('/api/books/:id', (req, res) => {
     console.log("Delete Book: " + req.params.id);
     console.log(req.body);
 
+    //used findByIdAndDelete method to find the book record and delete it 
     BookModel.findByIdAndDelete(req.params.id,(err, data)=>{
         res.send(data);
     })
 })
 
+//used post method to create a book record
 app.post('/api/books', (req, res) => {
     //create data
     BookModel.create({
