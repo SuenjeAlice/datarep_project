@@ -36,12 +36,12 @@ export class Book extends Component{
   render(){
     
     //To determine whether or not a book was read
-    console.log(this.props.book.read);
+    //console.log(this.props.book.read);
     var result = "";
     if(this.props.book.read){
-      result = "READ";
+      result = "read";
     }else{
-      result = "NOT READ";
+      result = "TBR";
     }
 
     return (
@@ -54,7 +54,7 @@ export class Book extends Component{
                   <footer>
                     <p>Publisher: {this.props.book.publisher}</p>
                     <p>Genre: {this.props.book.genre}</p>
-                    <p>I did {result} it.</p>
+                    <p>Status: {result} </p>
                   </footer>
                 </blockquote>
               </Card.Body>

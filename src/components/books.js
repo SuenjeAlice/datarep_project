@@ -6,8 +6,10 @@ import { Book } from './book';
 
 export class Books extends Component{
   render(){
-    return this.props.books.map( (book) => {
-        return <Book book = {book} ReloadData = {this.props.ReloadData}></Book>
+    //sort the books by title and map them, return the Book component
+    return this.props.books.sort((a, b) => a.bTitle.localeCompare(b.bTitle)).map( (book) => {
+            return <Book book = {book} ReloadData = {this.props.ReloadData}></Book>
+
     })
   }
 }

@@ -14,6 +14,7 @@ export class Home extends Component{
     return (
       <div className="App home">
 
+    <div className = "homepage">
         <Carousel className = "carousel">
           <Carousel.Item interval={8000}>
             <img
@@ -104,6 +105,7 @@ export class Home extends Component{
               <Link to = {"/mybooks"} className="btn btn-dark homeBtnLink" >View Books</Link>
             </div>
           </div>
+        </div>
         </div>
       </div>
     );

@@ -95,10 +95,19 @@ export class Add extends Component{
 
     //onChangeRead method which assigns the value to the read
     onChangeRead(e){
-            //update state to include value
+        var readVar = e.target.value
+        console.log(readVar);
+        if(readVar === "Yes"){
+            console.log("Yes, if state")
             this.setState({
-                read: e.target.value 
+                read: "true"
             })
+        }else if(readVar === "No"){
+            console.log("No, if state")
+            this.setState({
+                read: "false"
+            })
+        }
     }
 
     //onSubmit method 
@@ -139,7 +148,8 @@ export class Add extends Component{
 
   render(){
     return (
-      <div className="App">
+      <div className="App formPage">
+          <div className = "formPageInner">
           <h1>Add a New Book to Your Booklist</h1>
             {/*Form to add a new Book which will be submitted on button press */}
             <form onSubmit={this.onSubmit}>
@@ -168,12 +178,18 @@ export class Add extends Component{
                 </div>
                 <div className="form-group">
                     <label>Did you read the book? </label>
-                    <input type='text' className='form-control' value={this.state.read} onChange={this.onChangeRead}></input>
+                    {/*<input type='text' className='form-control' value={this.state.read} onChange={this.onChangeRead}></input>*/}
+                    <select class="form-control"  value={this.state.read} onChange={this.onChangeRead}>
+                            <option selected>Please select:</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                    </select>
                 </div>
                 <div className='form-group'>
                     <input type='submit' value='Add Book' className='btn btn-dark'></input>
                 </div>
             </form>
+            </div>
       </div>
     );
   }

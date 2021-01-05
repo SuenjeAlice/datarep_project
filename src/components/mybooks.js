@@ -61,34 +61,36 @@ export class MyBooks extends Component{
       })
       console.log(this.state.searchValue);
       
-  
-      //at the end reset searchValue to emtpy
     }
 
   render(){
 
-    const filteredBooks =
+    const filteredBooks = 
       this.state.books.filter(book => {
-        return book.bTitle.toLowerCase().includes(this.state.searchValue.toLowerCase())
+        return book.bTitle.toLowerCase().includes(this.state.searchValue.toLowerCase()) + book.author.toLowerCase().includes(this.state.searchValue.toLowerCase()) + book.genre.toLowerCase().includes(this.state.searchValue.toLowerCase()) + book.publisher.toLowerCase().includes(this.state.searchValue.toLowerCase())
       })
+
 
       console.log(filteredBooks);
       console.log("This is the searchValue: " + this.state.searchValue);
 
     return (
       <div className="App mybooks">
-        <h1>My Books</h1>
-        <hr></hr>
-        <div className = "myBooksBtn">
-        <Link to = {"/add"} className="btn btn-dark myBooksBtnLink" >New Book</Link> 
-        <SearchField
-          value= {this.state.searchValue}
-          placeholder="Search..."
-          onSearchClick={this.onSearchClick}
-          />
+        <div className = "mybooksBackground">
+          <h1>My Books</h1>
+          <hr></hr>
+          <div className = "myBooksBtn">
+            <Link to = {"/add"} className="btn btn-dark myBooksBtnLink" >New Book</Link> 
+            <SearchField
+              value= {this.state.searchValue}
+              placeholder="Search..."
+              onSearchClick={this.onSearchClick}
+              onEnter={this.onSearchClick}
+              />
+          </div>
+          <ScrollUpButton/>
+          <Books books = {filteredBooks} ReloadData = {this.ReloadData}></Books>
         </div>
-        <ScrollUpButton/>
-        <Books books = {filteredBooks} ReloadData = {this.ReloadData}></Books>
       </div>
     );
   }
