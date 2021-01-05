@@ -10,6 +10,8 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 //include mongoose
 const mongoose = require('mongoose');
+//include path
+const path = require('path');
 
 //add use method for cors
 app.use(cors());
@@ -21,6 +23,10 @@ app.use(function(req, res, next) {
     "Origin, X-Requested-With, Content-Type, Accept");
     next();
     }); 
+
+//add use method to configure how to get from here to the build folder
+app.use(express.static(path.join(__dirname, '../build')));
+app.use('/static', express.static(path.join(__dirname, 'build//static')));   
 
 //add use method for bodyParser
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -108,6 +114,12 @@ app.post('/api/books', (req, res) => {
     //response to avoid replications
     res.send('Book has been added');
 })
+
+//used get method, * -> all unused paths 
+app.get('*', (req, res)=>{
+    //send back the index file  
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
+  })
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
