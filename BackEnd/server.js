@@ -12,6 +12,13 @@ const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 //include path
 const path = require('path');
+//include favicon
+const favicon = require('serve-favicon');
+
+//favicon
+/*I added the favicon when I was still using Localhost:3000 for my front-end and it worked
+  without any problems, when I ran the build and added it here it didn't work. */
+app.use(favicon(path.join(__dirname, '../build', 'favicon.ico')))
 
 //add use method for cors
 app.use(cors());
